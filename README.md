@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 First of all to install all the required node modules to our Weather App, We should run the following command which will install all the node modules mentioned in "package.json"
 
+<<<<<<< HEAD
+=======
+### `npm install`
+>>>>>>> 61bc6af1b19605ea36b9f69be1916fac368c0bbc
 
 ## Available Scripts
 
@@ -73,3 +77,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
