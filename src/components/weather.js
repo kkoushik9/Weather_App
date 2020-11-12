@@ -11,7 +11,7 @@ function Weather(props) {
                 <h3 className="py-1">{props.description}</h3>
                 <h3 className="pt-2 m-0">
                     <div className="fl">
-                        <i className="wi wi-day-sunny display-3"> </i>
+                        <i className={`wi ${props.icon} display-3`}> </i>
                         <b className="display-2 pl-3">{props.temp}&deg;c</b>
                     </div>
                     
