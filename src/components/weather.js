@@ -2,7 +2,7 @@ import React from 'react'
 
 function Weather(props) {
 
-   
+   if(props.city!==''){
     return(
         <div className="container text-light">
             <div className="cards">
@@ -57,6 +57,9 @@ function Weather(props) {
             </div>
         </div>
     );
+    }
+    else
+    return("");
 }
 
 export default Weather;

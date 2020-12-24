@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css'
 import Weather from './components/weather'
+import Form from './components/form'
 
 
 const weatherApi = {
@@ -24,10 +25,10 @@ class App extends React.Component{
       wind : undefined,
       pressure : undefined,
       icon: undefined,
+      error:false ,
     } ; 
 
 
-    this.getWeather();
 
     this.weatherIcon = {
       Thunderstorm: "wi-thunderstorm",
@@ -77,8 +78,17 @@ class App extends React.Component{
      }
     };
   
-  getWeather = async ()=>{
-    const api_response = await fetch(`http://${weatherApi.base}weather?q=Charlotte&appid=${weatherApi.key}`)
+  getWeather = async (e)=>{
+    
+    console.log("entered 1");
+    e.preventDefault();
+    console.log("entered 2");
+
+    const city = e.target.elements.city.value;
+
+    if(city){
+    const api_response = await fetch(`http://${weatherApi.base}weather?q=${city}&appid=${weatherApi.key}`);
+   
     const response = await api_response.json();
     console.log(response);
 
@@ -95,22 +105,30 @@ class App extends React.Component{
         wind : this.toKMPH(response.wind.speed),
         pressure : this.toInchesInMercury(response.main.pressure),
         icon: this.getIcon(response.weather[0].id),
-      })
+        error: false,
+      });
     }
+    else{
+      this.setState({
+        error:true,
+      });
+    }
+  }
+  else{
+    this.setState({
+      error:true,
+    });
+  }
 
     console.log(this.state.icon);
   }
 
   render(){
-    console.log("City name : " + this.state.city);
-    if(this.state.city==="")
-    {
-      return(<h1 > ERROR 404 !! City Not Found. Please Enter the Name of the city correctly.</h1>);
-    }
-    else{
+    
       return( 
         <div  className="App ">
-        
+          <main>
+        <Form loadweather={this.getWeather} error={this.state.error} />
         <Weather 
         city = {this.state.city} 
         country={this.state.country}
@@ -124,12 +142,12 @@ class App extends React.Component{
         pressure={this.state.pressure}
         icon={this.state.icon}
         />
-      
+       </main>
         </div>
       );
     }
   }
-}
+
 
 
 
