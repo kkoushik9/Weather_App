@@ -1,8 +1,13 @@
 form input[name="city"] {
   background-color: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
   border-radius: 0;
   border: 0;
   border-bottom: 2px solid whitesmoke;
   border-radius: 0;
+}
+
+::placeholder {
+  color: rgb(201, 201, 201);
+  opacity: 1;
 }

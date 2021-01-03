@@ -9,6 +9,8 @@ const weatherApi = {
   base: "api.openweathermap.org/data/2.5/"
 }
 
+let bgimage = 'app-default';
+
 class App extends React.Component{
   constructor()
   {
@@ -28,7 +30,7 @@ class App extends React.Component{
       error:false ,
     } ; 
 
-
+    
 
     this.weatherIcon = {
       Thunderstorm: "wi-thunderstorm",
@@ -47,34 +49,44 @@ class App extends React.Component{
    toKMPH = (speedInmps)=>{ return  (speedInmps * 3.6).toFixed(1) };
    toInchesInMercury = (pressurein_hPa)=>{ return (pressurein_hPa * 0.02953).toFixed(2) };
 
+   
+
    getIcon = (iconId) => { 
 
     console.log("Icon Id is: "+iconId);
 
      switch(true){
-       case iconId>=200 && iconId<=232 :
-       return this.weatherIcon.Thunderstorm;
+       case iconId>=200 && iconId<=232 :{
+       bgimage='app-thunderstorm';
+       return this.weatherIcon.Thunderstorm;}
 
-       case iconId>=300 && iconId<=331 :
-       return this.weatherIcon.Drizzle;
+       case iconId>=300 && iconId<=331 : {
+        bgimage='app-drizzle';
+       return this.weatherIcon.Drizzle;}
 
-       case iconId>=500 && iconId<=531 :
-       return this.weatherIcon.Rain;
+       case iconId>=500 && iconId<=531 : {
+        bgimage='app-rain';
+       return this.weatherIcon.Rain;}
 
-       case iconId>=600 && iconId<=622 :
-       return this.weatherIcon.Snow;
+       case iconId>=600 && iconId<=622 : {
+        bgimage='app-snow';
+       return this.weatherIcon.Snow;}
 
-       case iconId>=701 && iconId<=781 :
-       return this.weatherIcon.Atmosphere;
+       case iconId>=701 && iconId<=781 : {
+        bgimage='app-fog';
+       return this.weatherIcon.Atmosphere;}
 
-       case iconId===800 :
-       return this.weatherIcon.Clear;
+       case iconId===800 : {
+        bgimage='app-sunny';
+       return this.weatherIcon.Clear;}
 
-       case iconId>=801 && iconId<=804 :
-       return this.weatherIcon.Clouds;
+       case iconId>=801 && iconId<=804 : {
+        bgimage='app-cloudy';
+       return this.weatherIcon.Clouds;}
 
-       default:
-       return this.weatherIcon.Default;
+       default: {
+        bgimage='app-default';
+       return this.weatherIcon.Default;}
      }
     };
   
@@ -126,7 +138,7 @@ class App extends React.Component{
   render(){
     
       return( 
-        <div  className="App ">
+        <div  className={"App "+bgimage}>
           <main>
         <Form loadweather={this.getWeather} error={this.state.error} />
         <Weather 

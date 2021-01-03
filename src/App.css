@@ -1,11 +1,75 @@
 .App {
   text-align: center;
-  width: 100%;
-  height: 100%;
-  /* background-image: url(./assets/sunny_image.jpg);
-  background-size: cover; */
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 
+.app-default {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/default.jpg);
+}
+.app-cloudy {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/cloudy.jpg);
+}
+
+.app-drizzel {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/drizzel.jpg);
+}
+
+.app-sunny {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/sunny.jpg);
+}
+
+.app-rain {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/rain.jpg);
+}
+
+.app-snow {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/snow.jpg);
+}
+
+.app-thunderstrom {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/thunderstorm.jpg);
+}
+
+.app-fog {
+  background-image: linear-gradient(
+      rgba(36, 36, 36, 0.5),
+      rgba(75, 75, 75, 0.5)
+    ),
+    url(./assets/fog.jpg);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
