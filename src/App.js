@@ -99,7 +99,7 @@ class App extends React.Component{
     const city = e.target.elements.city.value;
 
     if(city){
-    const api_response = await fetch(`http://${weatherApi.base}weather?q=${city}&appid=${weatherApi.key}`);
+    const api_response = await fetch(`https://${weatherApi.base}weather?q=${city}&appid=${weatherApi.key}`);
    
     const response = await api_response.json();
     console.log(response);
